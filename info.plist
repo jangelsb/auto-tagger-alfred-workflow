@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.jangelsb.sorted3</string>
+	<string>com.jangelsb.autotagger</string>
+	<key>category</key>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>BF0DCD39-E90D-408B-955B-B76DF51AA30D</key>
@@ -46,11 +48,11 @@
 	<key>createdby</key>
 	<string>Josh Angelsberg</string>
 	<key>description</key>
-	<string>The ability to add auto tagged items to Sorted³</string>
+	<string>The ability to auto tag items and add them via a URL scheme</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Sorted³</string>
+	<string>AutoTagger</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -109,7 +111,7 @@ python3 process_url.py "$1"</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
-				<string>Add item to Sorted³</string>
+				<string>Add item to {var:input_app_name}</string>
 				<key>withspace</key>
 				<true/>
 			</dict>
@@ -163,7 +165,7 @@ python3 process_url.py "$1"</string>
 		<key>C46160A7-2F25-4DB3-831A-A80C25614BE1</key>
 		<dict>
 			<key>xpos</key>
-			<real>560</real>
+			<real>565</real>
 			<key>ypos</key>
 			<real>25</real>
 		</dict>
@@ -181,7 +183,7 @@ python3 process_url.py "$1"</string>
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>sa</string>
+				<string>a</string>
 				<key>placeholder</key>
 				<string>sa</string>
 				<key>required</key>
@@ -197,6 +199,27 @@ python3 process_url.py "$1"</string>
 			<string>textfield</string>
 			<key>variable</key>
 			<string>input_keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Sorted³</string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>App name</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>input_app_name</string>
 		</dict>
 		<dict>
 			<key>config</key>
