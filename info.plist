@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.jangelsb.sorted3</string>
+	<key>connections</key>
+	<dict>
+		<key>BF0DCD39-E90D-408B-955B-B76DF51AA30D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C46160A7-2F25-4DB3-831A-A80C25614BE1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BF0DCD39-E90D-408B-955B-B76DF51AA30D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Josh Angelsberg</string>
+	<key>description</key>
+	<string>The ability to add auto tagged items to Sorted³</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Sorted³</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>C46160A7-2F25-4DB3-831A-A80C25614BE1</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/bin/bash
+
+python3 process_url.py "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BF0DCD39-E90D-408B-955B-B76DF51AA30D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>{var:input_keyword}</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Add item to Sorted³</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</key>
+		<dict>
+			<key>xpos</key>
+			<real>560</real>
+			<key>ypos</key>
+			<real>150</real>
+		</dict>
+		<key>BF0DCD39-E90D-408B-955B-B76DF51AA30D</key>
+		<dict>
+			<key>xpos</key>
+			<real>315</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+		<key>C46160A7-2F25-4DB3-831A-A80C25614BE1</key>
+		<dict>
+			<key>xpos</key>
+			<real>560</real>
+			<key>ypos</key>
+			<real>25</real>
+		</dict>
+		<key>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</key>
+		<dict>
+			<key>xpos</key>
+			<real>75</real>
+			<key>ypos</key>
+			<real>80</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>sa</string>
+				<key>placeholder</key>
+				<string>sa</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Type this phrase to add items</string>
+			<key>label</key>
+			<string>keyword</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>input_keyword</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>work 📁:
+  - work
+  - ios
+  - pr
+
+review 👀:
+  - pr
+  - doc
+  - review
+
+Card 💡:
+  - create card
+
+Important 🔺:
+  - ' !!'
+  - '!! '</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+				<key>verticalsize</key>
+				<integer>9</integer>
+			</dict>
+			<key>description</key>
+			<string>This a yaml file of tags, where each tag has a list of items the represent that tag</string>
+			<key>label</key>
+			<string>Tags</string>
+			<key>type</key>
+			<string>textarea</string>
+			<key>variable</key>
+			<string>input_tags</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+				<key>verticalsize</key>
+				<integer>3</integer>
+			</dict>
+			<key>description</key>
+			<string>Dyanmic variables: 
+
+[title] [tags] [today]</string>
+			<key>label</key>
+			<string>URL Scheme</string>
+			<key>type</key>
+			<string>textarea</string>
+			<key>variable</key>
+			<string>input_url_scheme</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string></string>
+	<key>webaddress</key>
+	<string>https://jangelsb.github.io</string>
+</dict>
+</plist>
