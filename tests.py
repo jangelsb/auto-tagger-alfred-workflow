@@ -1,5 +1,7 @@
 import subprocess
 import os
+import urllib.parse
+
 
 def run_script(query, input_tags, input_url_scheme):
     """Runs the tagging script with the given inputs."""
@@ -22,17 +24,22 @@ def validate_output(query, input_tags, input_url_scheme, expected_tags, expected
     """Validates the output of the script against expected values."""
     stdout, stderr = run_script(query, input_tags, input_url_scheme)
 
-    # Parse stdout for validation
-    lines = stdout.strip().split("\n")
-    matched_tags = []
-    url = ""
+    # # Parse stdout for validation
+    # lines = stdout.strip().split("\n")
+    # matched_tags = []
+    # url = ""
 
-    for line in lines:
-        if line.startswith("Matched Tags:"):
-            matched_tags = eval(line.replace("Matched Tags:", "").strip())
-        elif line.startswith("URL:"):
-            url = line.replace("URL:", "").strip()
+    # for line in lines:
+    #     if line.startswith("Matched Tags:"):
+    #         matched_tags = eval(line.replace("Matched Tags:", "").strip())
+    #     elif line.startswith("URL:"):
+    #         url = line.replace("URL:", "").strip()
 
+    url = stdout  # "http://example.com?tags=python%2Cjavascript%2Chtml"
+    decoded_url = urllib.parse.unquote(url)
+    tags = decoded_url.split('tags=')[-1]
+    matched_tags = tags.split(',') if tags else []
+    
     # Validate
     assert matched_tags == expected_tags, f"Expected tags {expected_tags}, but got {matched_tags}"
     # assert all(part in url for part in expected_url_contains), f"Expected URL to contain {expected_url_contains}, but got {url}"
@@ -59,7 +66,7 @@ if __name__ == "__main__":
       - ' !!'
       - '!! '
     """
-    input_url_scheme = "sorted://x-callback-url/add?title=[title]&tags=[tags]&date=[today]"
+    input_url_scheme = "sorted://x-callback-url/add?title=[title]&date=[today]&tags=[tags]" # TODO: split on tags= and use the left hand side url decoded
 
     test_cases = [
         {
