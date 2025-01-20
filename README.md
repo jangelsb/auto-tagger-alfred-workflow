@@ -1,5 +1,7 @@
 # AutoTagger for Alfred
 
-This Alfred 5 workflow is designed for seamless integration with Sorted³ but can be customized for any URL scheme. It enables you to specify tags and related terms in an inline YAML configuration, customize URL schemes with dynamic placeholders `[title]`, `[tags]`, and `[today]`, and utilize a designated keyword for tagging.
+This Alfred 5 workflow let's you quickly add items to any app using a custom URL scheme while automatically generating tags based on your query. 
 
-Tags are automatically generated based on the items listed in the query, while URLs are excluded. For usage examples, please refer to the unit tests in [tests.py](tests.py)
+It features an inline YAML configuration for specifying tags and related terms, along with a customizable URL scheme using dynamic placeholders `[title]`, `[tags]`, and `[today]`, and is optimized for Sorted³ out of the box.
+
+Tags are derived from the words in the query, with URLs being excluded. For usage examples, please refer to the unit tests in [tests.py](tests.py).
