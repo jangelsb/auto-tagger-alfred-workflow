@@ -15,6 +15,7 @@ def run_script(query, input_tags, input_url_scheme):
 
 def validate_output(query, input_tags, input_url_scheme, expected_tags):
     """Validates the output of the script against expected values."""
+
     url = run_script(query, input_tags, input_url_scheme)
     decoded_url = urllib.parse.unquote(url)
     tags = decoded_url.split('tags=')[-1]
@@ -42,10 +43,9 @@ if __name__ == "__main__":
       - create a card
 
     Important 🔺:
-      - ' !!'
-      - '!! '
+      - '!!'
     """
-    input_url_scheme = "sorted://x-callback-url/add?title=[title]&date=[today]&tags=[tags]" # TODO: split on tags= and use the left hand side url decoded
+    input_url_scheme = "sorted://x-callback-url/add?title=[title]&date=[today]&tags=[tags]"
 
     test_cases = [
         {

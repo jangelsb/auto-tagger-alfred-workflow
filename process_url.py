@@ -24,9 +24,16 @@ def get_matching_tags(query, tags_dict):
     matched_tags = []
 
     for tag, keywords in tags_dict.items():
-        # Check if any keyword is present in the query
-        if any(keyword in query_lower for keyword in keywords):
-            matched_tags.append(tag)
+        for keyword in keywords:
+            # Match keywords as whole words or followed by punctuation
+
+            # print("----")
+            # print(keyword)
+            # print(query_lower)
+            word_pattern = rf'(^|\s|\b){re.escape(keyword)}(\b|\s|$)'
+            if re.search(word_pattern, query_lower):
+                matched_tags.append(tag)
+                break
 
     return matched_tags
 
@@ -49,7 +56,8 @@ def process(query, shouldPrintOutput=True):
     url = input_url_scheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
 
     if shouldPrintOutput:
-        sys.stdout.write(url)
+        # sys.stdout.write(url)
+        print(url)
         
     return url
 
