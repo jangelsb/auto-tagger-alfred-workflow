@@ -30,11 +30,9 @@ def get_matching_tags(query, tags_dict):
 
     return matched_tags
 
-if __name__ == "__main__":
-
+def process(query, shouldPrintOutput=True):
     input_tags = os.getenv('input_tags')
     input_url_scheme = os.getenv('input_url_scheme')
-    query = sys.argv[1]
 
     # Remove URLs from the query
     query_without_urls = remove_urls(query)
@@ -50,4 +48,12 @@ if __name__ == "__main__":
     today_date = datetime.now().strftime("%Y-%m-%d")
     url = input_url_scheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
 
-    sys.stdout.write(url)
+    if shouldPrintOutput:
+        sys.stdout.write(url)
+        
+    return url
+
+
+if __name__ == "__main__":
+    process(sys.argv[1])
+    
