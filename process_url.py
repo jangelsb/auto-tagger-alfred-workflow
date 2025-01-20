@@ -56,8 +56,8 @@ def process(query, shouldPrintOutput=True):
     url = input_url_scheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
 
     if shouldPrintOutput:
-        # sys.stdout.write(url)
-        print(url)
+        sys.stdout.write(url)
+        # print(url)
         
     return url
 
