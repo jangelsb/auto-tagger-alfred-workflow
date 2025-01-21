@@ -254,14 +254,7 @@ Important 🔺:
 			<key>description</key>
 			<string>This a yaml config of tags, where each tag has a list of items that represent the tag
 
-Format:
-tag name1:
-  - realted item A 1
-  - realted item A 2
-
-tag name1:
-  - realted item B 1
-  - realted item B 2</string>
+See example in Step 1 👉</string>
 			<key>label</key>
 			<string>Tags</string>
 			<key>type</key>
@@ -289,25 +282,7 @@ tag name1:
 			<key>description</key>
 			<string>This a yaml config of url schemes, where each item has a title, url, and (optional) icon path.
 
-
-Format:
-
-- title: Add to Inbox 📥
-  url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
-
-- title: "Search in Sorted³"
-  url: sorted://x-callback-url/open?search=[query]
-  icon: search.png
-
-
-Dyanmic variables: 
-
-[query] [tags] [today]
-
-
-Icons:
-
-tags.png, search.png</string>
+See example in Step 2 👉</string>
 			<key>label</key>
 			<string>URL Schemes</string>
 			<key>type</key>
