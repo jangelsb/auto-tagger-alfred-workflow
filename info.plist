@@ -157,7 +157,34 @@ Important 🔺:
 
 ## 📝 Version History
 
-#### v2025.1</string>
+#### v2025.3
+* Fixed issue with tags auto completing
+* Removed subtitle for items in script filter
+* Tweak how tags look in the UI
+* Minor clean up
+
+---
+
+#### v2025.2
+Now you can have multiple url schemes and see found tags in line!
+
+* Changed workflow to use a script filter
+* Added support for multiple url schemes in a yaml config
+* Added some icons
+
+---
+
+#### v2025.1
+This is the initial release.
+
+The workflow defaults to working with Sorted³ out of the box, but it can be customized to use any URL scheme 😊
+
+It allows you to
+
+* specify the tags and related terms in an inline yaml config
+* specify the URL scheme with dynamic placeholders [title], [tags], [today]
+the keyword
+* Tags are added based on the items show up in the query. URLs are ignored.</string>
 	<key>uidata</key>
 	<dict>
 		<key>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</key>
@@ -290,7 +317,7 @@ tags.png, search.png</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2025.2</string>
+	<string>2025.3</string>
 	<key>webaddress</key>
 	<string>https://jangelsb.github.io</string>
 </dict>
