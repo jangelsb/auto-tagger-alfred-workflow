@@ -184,8 +184,7 @@ Card 💡:
   - create card
 
 Important 🔺:
-  - ' !!'
-  - '!! '</string>
+  - '!!'</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
@@ -194,7 +193,16 @@ Important 🔺:
 				<integer>9</integer>
 			</dict>
 			<key>description</key>
-			<string>This a yaml file of tags, where each tag has a list of items the represent that tag</string>
+			<string>This a yaml config of tags, where each tag has a list of items that represent the tag
+
+Format:
+tag name1:
+  - realted item A 1
+  - realted item A 2
+
+tag name1:
+  - realted item B 1
+  - realted item B 2</string>
 			<key>label</key>
 			<string>Tags</string>
 			<key>type</key>
@@ -206,12 +214,12 @@ Important 🔺:
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>- title: Add to Inbox 📥
-  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]
-  icon: path/to/icon.png
+				<string>- title: "Add to inbox 📥" 
+  url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
 
-- title: "Add to Admin 📁" 
-  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]&amp;list=Admin%20%F0%9F%93%81</string>
+- title: "Search"
+  url: sorted://x-callback-url/open?search=[query]
+  icon: search.png</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
@@ -220,19 +228,27 @@ Important 🔺:
 				<integer>9</integer>
 			</dict>
 			<key>description</key>
-			<string>Input is a YAML config in this format
+			<string>This a yaml config of url schemes, where each item has a title, url, and (optional) icon path.
+
+
+Format:
 
 - title: Add to Inbox 📥
-  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]
-  icon: path/to/icon.png
+  url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
 
-- title: "Add to Admin 📁" 
-  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]&amp;list=Admin%20%F0%9F%93%81
+- title: "Search"
+  url: sorted://x-callback-url/open?search=[query]
+  icon: search.png
 
 
 Dyanmic variables: 
 
-[title] [tags] [today]</string>
+[query] [tags] [today]
+
+
+Icons:
+
+tags.png, search.png</string>
 			<key>label</key>
 			<string>URL Schemes</string>
 			<key>type</key>

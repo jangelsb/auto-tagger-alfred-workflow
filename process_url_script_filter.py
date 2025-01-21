@@ -130,7 +130,7 @@ def process(query, shouldPrintOutput=True):
 
 
     for item in url_items:
-        item.url = item.urlScheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
+        item.url = item.urlScheme.replace("[query]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
         
 
     output = {"items": []}
