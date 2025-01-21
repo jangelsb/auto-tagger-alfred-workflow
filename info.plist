@@ -157,6 +157,12 @@ Important 🔺:
 
 ## 📝 Version History
 
+#### v2025.4
+* Cleaned up workflow configuration to reference the readme
+* Fixed typos
+
+---
+
 #### v2025.3
 * Fixed issue with tags auto completing
 * Removed subtitle for items in script filter
@@ -292,7 +298,7 @@ See example in Step 2 👉</string>
 		</dict>
 	</array>
 	<key>version</key>
-	<string>2025.3</string>
+	<string>2025.4</string>
 	<key>webaddress</key>
 	<string>https://jangelsb.github.io</string>
 </dict>
