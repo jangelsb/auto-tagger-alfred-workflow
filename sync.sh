@@ -2,7 +2,7 @@
 
 WORKFLOW_FOLDER="$autotagger_path"
 
-FILES_TO_PUSH=("process_url.py")
+FILES_TO_PUSH=("process_url.py" "process_url_script_filter.py")
 
 # copy these files to the WORKFLOW_FOLDER
 for FILE in "${FILES_TO_PUSH[@]}"; do
