@@ -37,15 +37,12 @@ def get_matching_tags(query, tags_dict):
 
     return matched_tags
 
-def process(query, shouldPrintOutput=True):
-    input_tags = os.getenv('input_tags')
-    input_url_scheme = os.getenv('input_url_scheme')
-
+def process(query, tags, url_scheme):
     # Remove URLs from the query
     query_without_urls = remove_urls(query)
 
-    # Parse the YAML into a dictionary
-    tags_dict = parse_tags(input_tags)
+    # Parse the tags into a dictionary
+    tags_dict = parse_tags(tags)
 
     # Find the matching tags for the query
     matched_tags = get_matching_tags(query_without_urls, tags_dict)
@@ -53,13 +50,9 @@ def process(query, shouldPrintOutput=True):
     # Replace placeholders in the URL
     tags_string = ",".join(matched_tags)
     today_date = datetime.now().strftime("%Y-%m-%d")
-    url = input_url_scheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
-
-    if shouldPrintOutput:
-        sys.stdout.write(url)
-        # print(url)
+    url = url_scheme.replace("[query]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
         
-    return url
+    return url, matched_tags
 
 
 if __name__ == "__main__":

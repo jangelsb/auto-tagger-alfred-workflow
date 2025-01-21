@@ -4,22 +4,12 @@ import urllib.parse
 from process_url import process
 
 
-def run_script(query, input_tags, input_url_scheme):
-    """Runs the tagging script with the given inputs."""
-
-    # Set environment variables
-    os.environ['input_tags'] = input_tags
-    os.environ['input_url_scheme'] = input_url_scheme
-
-    return process(query, shouldPrintOutput=False)
-
 def validate_output(query, input_tags, input_url_scheme, expected_tags):
     """Validates the output of the script against expected values."""
 
-    url = run_script(query, input_tags, input_url_scheme)
+    url, matched_tags = process(query=query, tags=input_tags, url_scheme=input_url_scheme)
     decoded_url = urllib.parse.unquote(url)
     tags = decoded_url.split('tags=')[-1]
-    matched_tags = tags.split(',') if tags else []
     
     # Validate
     assert matched_tags == expected_tags, f"Expected tags {expected_tags}, but got {matched_tags}"
