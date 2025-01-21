@@ -110,7 +110,7 @@
 		<key>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</key>
 		<dict>
 			<key>xpos</key>
-			<real>560</real>
+			<real>445</real>
 			<key>ypos</key>
 			<real>150</real>
 		</dict>
@@ -144,27 +144,6 @@
 			<string>textfield</string>
 			<key>variable</key>
 			<string>input_keyword</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>default</key>
-				<string>Sorted³</string>
-				<key>placeholder</key>
-				<string></string>
-				<key>required</key>
-				<true/>
-				<key>trim</key>
-				<true/>
-			</dict>
-			<key>description</key>
-			<string></string>
-			<key>label</key>
-			<string>App name</string>
-			<key>type</key>
-			<string>textfield</string>
-			<key>variable</key>
-			<string>input_app_name</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -214,10 +193,10 @@ tag name1:
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>- title: "Add to inbox 📥" 
+				<string>- title: Add to Inbox 📥
   url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
 
-- title: "Search"
+- title: "Search in Sorted³"
   url: sorted://x-callback-url/open?search=[query]
   icon: search.png</string>
 				<key>required</key>
@@ -236,7 +215,7 @@ Format:
 - title: Add to Inbox 📥
   url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
 
-- title: "Search"
+- title: "Search in Sorted³"
   url: sorted://x-callback-url/open?search=[query]
   icon: search.png
 
@@ -257,8 +236,6 @@ tags.png, search.png</string>
 			<string>input_url_scheme_list</string>
 		</dict>
 	</array>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>2025.2</string>
 	<key>webaddress</key>

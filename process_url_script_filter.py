@@ -36,7 +36,7 @@ class ResultItem:
             "title": self.title,
             "arg": self.arg,
             "subtitle": self.subtitle,
-            "autocomplete": f" {self.autocomplete}",
+            "autocomplete": self.autocomplete,
             "valid": self.valid,
             "type": self.type if self.type else "default",
             "quicklookurl": self.quicklookurl
@@ -49,6 +49,10 @@ class ResultItem:
             item_dict["icon"] = {
                 "path": self.icon_path
             }
+
+        if self.should_skip_smart_sort:
+            item_dict["skipknowledge"] = True
+
         return {k: v for k, v in item_dict.items() if v is not None}
 
 
@@ -86,9 +90,11 @@ def main(query):
 
     output = {"items": []}
 
-    output['items'] += [ResultItem(title=item.title, arg=item.url, subtitle=item.url, icon_path=item.icon).to_dict() for item in url_items]
+    output['items'] += [ResultItem(title=item.title, arg=item.url, icon_path=item.icon).to_dict() for item in url_items]
 
-    output['items'] += [ResultItem(title='Tags found', arg="", subtitle="   |   ".join(matched_tags), icon_path="tag.png", valid=False).to_dict()]
+    found_tags_item = ResultItem(title=f"Tags", arg=None, subtitle=f"{matched_tags}", icon_path="tag.png", valid=False, should_skip_smart_sort=True)
+
+    output['items'] += [found_tags_item.to_dict()]
 
         
     sys.stdout.write(json.dumps(output))
