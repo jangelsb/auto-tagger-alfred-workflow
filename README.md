@@ -19,7 +19,6 @@ Tags are derived from the words in the query, with URLs being excluded. For usag
 ![Custom Commands](images/image2.png)
 
 
-
 ---
 
 ## 📖 Installation
@@ -63,7 +62,7 @@ Important 🔺:
 - `[tags]`
 - `[today]`
 
-**Builtin icons:**
+**Built in icons:**
 - `tags.png`
 - `search.png`
 
