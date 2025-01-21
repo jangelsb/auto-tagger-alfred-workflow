@@ -2,11 +2,15 @@ import sys
 import json
 import os
 import yaml
+import urllib.parse
+import re
+from datetime import datetime
 
 class URLScheme:
-    def __init__(self, title, urlScheme, image=None):
+    def __init__(self, title, urlScheme, url=None, image=None):
         self.title = title
         self.urlScheme = urlScheme
+        self.url = url
         self.image = image
 
 
@@ -66,19 +70,80 @@ def generate_list_from_yaml(yaml_string):
         return []
 
 
-def main():
+
+
+
+def parse_tags(input_tags):
+    """Parses the YAML string into a dictionary."""
+    try:
+        return yaml.safe_load(input_tags)
+    except yaml.YAMLError as e:
+        print(f"Error parsing YAML: {e}")
+        return {}
+
+def remove_urls(query):
+    """Removes URLs from the query."""
+    url_pattern = r'https?://\S+|www\.\S+'
+    return re.sub(url_pattern, '', query)
+
+def get_matching_tags(query, tags_dict):
+    """Finds the tags that match any of the keywords in the query."""
+    query_lower = query.lower()
+    matched_tags = []
+
+    for tag, keywords in tags_dict.items():
+        for keyword in keywords:
+            # Match keywords as whole words or followed by punctuation
+
+            # print("----")
+            # print(keyword)
+            # print(query_lower)
+            word_pattern = rf'(^|\s|\b){re.escape(keyword)}(\b|\s|$)'
+            if re.search(word_pattern, query_lower):
+                matched_tags.append(tag)
+                break
+
+    return matched_tags
+
+
+
+
+def process(query, shouldPrintOutput=True):
     input_url_scheme_list = os.getenv('input_url_scheme_list')
+    input_tags = os.getenv('input_tags')
 
     url_items = generate_list_from_yaml(input_url_scheme_list)
 
+
+    # Remove URLs from the query
+    query_without_urls = remove_urls(query)
+
+    # Parse the YAML into a dictionary
+    tags_dict = parse_tags(input_tags)
+
+    # Find the matching tags for the query
+    matched_tags = get_matching_tags(query_without_urls, tags_dict)
+
+    # Replace placeholders in the URL
+    tags_string = ",".join(matched_tags)
+    today_date = datetime.now().strftime("%Y-%m-%d")
+
+
+    for item in url_items:
+        item.url = item.urlScheme.replace("[title]", urllib.parse.quote(query)).replace("[tags]", urllib.parse.quote(tags_string)).replace("[today]", today_date)
+        
+
     output = {"items": []}
 
-    output['items'] += [ResultItem(title=item.title, arg="", subtitle=item.urlScheme).to_dict() for item in url_items]
+    output['items'] += [ResultItem(title=item.title, arg="", subtitle=item.url).to_dict() for item in url_items]
 
-    output['items'] += [ResultItem(title='Tags found', arg="", subtitle="tbd", icon_path="tag.png").to_dict()]
+    output['items'] += [ResultItem(title='Tags found', arg="", subtitle="   |   ".join(matched_tags), icon_path="tag.png").to_dict()]
 
+    if shouldPrintOutput:
+        sys.stdout.write(json.dumps(output))
 
-    sys.stdout.write(json.dumps(output))
+    return url
+
 
 if __name__ == "__main__":
-    main()
+    process(sys.argv[1])
