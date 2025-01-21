@@ -7,15 +7,15 @@ import re
 from datetime import datetime
 
 class URLScheme:
-    def __init__(self, title, urlScheme, url=None, image=None):
+    def __init__(self, title, urlScheme, url=None, icon=None):
         self.title = title
         self.urlScheme = urlScheme
         self.url = url
-        self.image = image
+        self.icon = icon
 
 
 class ResultItem:
-    def __init__(self, title, arg, subtitle='', autocomplete=None, location=None, valid=False, mods=None, text=None, uid=None, icon_path=None, type=None, quicklookurl=None, should_skip_smart_sort=None):
+    def __init__(self, title, arg, subtitle='', autocomplete=None, location=None, valid=True, mods=None, text=None, uid=None, icon_path=None, type=None, quicklookurl=None, should_skip_smart_sort=None):
         self.uid = uid if uid else title
         self.title = title
         self.arg = arg
@@ -55,9 +55,9 @@ def generate_list_from_yaml(yaml_string):
     def entry_processor(entry):
         title = entry['title']
         url = entry['url']
-        image = entry.get('image', None)
+        icon = entry.get('icon', None)
 
-        return URLScheme(title=title, urlScheme=url, image=image)
+        return URLScheme(title=title, urlScheme=url, icon=icon)
 
     try:
         yaml_data = yaml.safe_load(yaml_string)
@@ -135,14 +135,12 @@ def process(query, shouldPrintOutput=True):
 
     output = {"items": []}
 
-    output['items'] += [ResultItem(title=item.title, arg="", subtitle=item.url).to_dict() for item in url_items]
+    output['items'] += [ResultItem(title=item.title, arg=item.url, subtitle=item.url, icon_path=item.icon).to_dict() for item in url_items]
 
-    output['items'] += [ResultItem(title='Tags found', arg="", subtitle="   |   ".join(matched_tags), icon_path="tag.png").to_dict()]
+    output['items'] += [ResultItem(title='Tags found', arg="", subtitle="   |   ".join(matched_tags), icon_path="tag.png", valid=False).to_dict()]
 
     if shouldPrintOutput:
         sys.stdout.write(json.dumps(output))
-
-    return url
 
 
 if __name__ == "__main__":

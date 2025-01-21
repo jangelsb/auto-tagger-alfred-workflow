@@ -8,34 +8,11 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>BF0DCD39-E90D-408B-955B-B76DF51AA30D</key>
+		<key>C54C778B-7BD5-4488-8CB6-17E5E559AFD0</key>
 		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>C46160A7-2F25-4DB3-831A-A80C25614BE1</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>BF0DCD39-E90D-408B-955B-B76DF51AA30D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -55,94 +32,6 @@
 	<string>AutoTagger</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string></string>
-				<key>title</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>C46160A7-2F25-4DB3-831A-A80C25614BE1</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>/bin/bash
-
-python3 process_url.py "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>BF0DCD39-E90D-408B-955B-B76DF51AA30D</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>af</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Add item to {var:input_app_name}</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>skipqueryencode</key>
-				<false/>
-				<key>skipvarencode</key>
-				<false/>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -192,6 +81,27 @@ python3 process_url.py "$1"</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>For more info see: https://github.com/jangelsb/auto-tagger-alfred-workflow</string>
@@ -204,33 +114,12 @@ python3 process_url.py "$1"</string>
 			<key>ypos</key>
 			<real>150</real>
 		</dict>
-		<key>BF0DCD39-E90D-408B-955B-B76DF51AA30D</key>
-		<dict>
-			<key>xpos</key>
-			<real>315</real>
-			<key>ypos</key>
-			<real>80</real>
-		</dict>
-		<key>C46160A7-2F25-4DB3-831A-A80C25614BE1</key>
-		<dict>
-			<key>xpos</key>
-			<real>565</real>
-			<key>ypos</key>
-			<real>25</real>
-		</dict>
 		<key>C54C778B-7BD5-4488-8CB6-17E5E559AFD0</key>
 		<dict>
 			<key>xpos</key>
-			<real>70</real>
+			<real>155</real>
 			<key>ypos</key>
-			<real>240</real>
-		</dict>
-		<key>F3987ECB-CE20-4B9C-8931-9F15FCF667DB</key>
-		<dict>
-			<key>xpos</key>
-			<real>75</real>
-			<key>ypos</key>
-			<real>80</real>
+			<real>150</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
@@ -241,7 +130,7 @@ python3 process_url.py "$1"</string>
 				<key>default</key>
 				<string>a</string>
 				<key>placeholder</key>
-				<string>sa</string>
+				<string>a</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
@@ -317,8 +206,12 @@ Important 🔺:
 			<key>config</key>
 			<dict>
 				<key>default</key>
-				<string>- name: "Add to inbox 📥" 
-  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]</string>
+				<string>- title: Add to Inbox 📥
+  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]
+  icon: path/to/icon.png
+
+- title: "Add to Admin 📁" 
+  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]&amp;list=Admin%20%F0%9F%93%81</string>
 				<key>required</key>
 				<true/>
 				<key>trim</key>
@@ -327,7 +220,17 @@ Important 🔺:
 				<integer>9</integer>
 			</dict>
 			<key>description</key>
-			<string>Dyanmic variables: 
+			<string>Input is a YAML config in this format
+
+- title: Add to Inbox 📥
+  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]
+  icon: path/to/icon.png
+
+- title: "Add to Admin 📁" 
+  url: sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]&amp;list=Admin%20%F0%9F%93%81
+
+
+Dyanmic variables: 
 
 [title] [tags] [today]</string>
 			<key>label</key>
@@ -336,29 +239,6 @@ Important 🔺:
 			<string>textarea</string>
 			<key>variable</key>
 			<string>input_url_scheme_list</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>default</key>
-				<string>sorted://x-callback-url/add?title=[title]&amp;tags=[tags]&amp;date=[today]</string>
-				<key>required</key>
-				<true/>
-				<key>trim</key>
-				<true/>
-				<key>verticalsize</key>
-				<integer>3</integer>
-			</dict>
-			<key>description</key>
-			<string>Dyanmic variables: 
-
-[title] [tags] [today]</string>
-			<key>label</key>
-			<string>URL Scheme</string>
-			<key>type</key>
-			<string>textarea</string>
-			<key>variable</key>
-			<string>input_url_scheme</string>
 		</dict>
 	</array>
 	<key>version</key>
