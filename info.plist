@@ -104,7 +104,60 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>For more info see: https://github.com/jangelsb/auto-tagger-alfred-workflow</string>
+	<string># AutoTagger
+
+For more info check out the repo: https://github.com/jangelsb/auto-tagger-alfred-workflow
+
+## 📖 Installation
+
+### Step 1: Set up your Tags
+```yaml
+work 📁:
+  - work
+  - ios
+  - pr
+
+review 👀:
+  - pr
+  - doc
+  - review
+
+Card 💡:
+  - create card
+
+Important 🔺:
+  - '!!'
+
+```
+
+### Step 2: Set up your URL Schemes
+```yaml
+- title: "Add to inbox 📥" 
+  url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]
+
+- title: "Add to admin 📁" 
+  url: sorted://x-callback-url/add?title=[query]&amp;tags=[tags]&amp;date=[today]&amp;list=%F0%9F%93%81%20Admin
+
+- title: "Search in Sorted³"
+  url: sorted://x-callback-url/open?search=[query]
+  icon: search.png
+
+```
+
+**Dyanmic variables:**
+- `[query]`
+- `[tags]`
+- `[today]`
+
+**Builtin icons:**
+- `tags.png`
+- `search.png`
+
+---
+
+## 📝 Version History
+
+#### v2025.1</string>
 	<key>uidata</key>
 	<dict>
 		<key>A13CB0BF-828B-4D76-8461-15D0AAB4EC1C</key>
